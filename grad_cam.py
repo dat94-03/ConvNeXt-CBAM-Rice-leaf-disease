@@ -79,9 +79,9 @@ if __name__ == "__main__":
     grad_cam = GradCAM(model, target_layer)
 
     os.makedirs("output/grad_cam", exist_ok=True)
-    random_indices = np.random.choice(len(test_dataset), 40, replace=False)
+    random_indices = np.random.choice(len(test_dataset), 64, replace=False)
 
-    for batch in range(5):  # 2 batches of 16 images
+    for batch in range(8):  # 2 batches of 16 images
         images = []
         for i in range(batch * 8, (batch + 1) * 8):  # 8 original + 8 overlayed
             image_path = test_dataset.samples[random_indices[i]][0]

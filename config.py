@@ -1,14 +1,14 @@
 import torch
 
 # Paths
-TRAIN_DATA_PATH = "./data/dataset2/train"
-TEST_DATA_PATH = "./data/dataset2/val"
+TRAIN_DATA_PATH = "./data/dataset1/train"
+TEST_DATA_PATH = "./data/dataset1/val"
 MODEL_PATH = "./models/convnext_cbam.pth"
 
 # Hyperparameters
 BATCH_SIZE = 16
 LEARNING_RATE = 0.0001
-EPOCHS = 3
+EPOCHS = 100
 
 # Device configuration
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")

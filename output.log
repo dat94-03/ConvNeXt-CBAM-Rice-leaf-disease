@@ -1,218 +1,52 @@
-nohup: ignoring input
-Epoch 1/3, Train Loss: 0.9788, Val Loss: 0.7304, Val Acc: 0.8526
-Saving best val acc: 0.8526
-Epoch 2/3, Train Loss: 0.6502, Val Loss: 0.6642, Val Acc: 0.8993
-Saving best val acc: 0.8993
-Epoch 3/3, Train Loss: 0.5861, Val Loss: 0.5772, Val Acc: 0.9422
-Saving best val acc: 0.9422
-Training complete. Best model loaded.
-✅ Model saved to ./models/convnext_cbam.pth
-📂 Training metrics plot saved to: output/training_metrics.png
-nohup: ignoring input
-
-🔥 Test Accuracy: 91.98%
-
-📌 Classification Report:
-                       precision    recall  f1-score   support
-
-     Bacterial Blight       0.90      0.94      0.92        48
-Bacterial Leaf Streak       0.94      0.88      0.91        33
-           Brown Spot       0.86      0.97      0.91       151
-              Healthy       0.96      0.94      0.95       157
-                Hispa       0.97      0.92      0.95       132
-           Leaf Blast       0.89      0.85      0.87       127
-        Sheath Blight       1.00      0.84      0.91        25
-
-             accuracy                           0.92       673
-            macro avg       0.93      0.91      0.92       673
-         weighted avg       0.92      0.92      0.92       673
-
-📂 Confusion matrix saved to: output/confusion_matrix.png
-🕒 Epoch 1/3 | Time: 126.30s | Train Loss: 0.9823 | Val Loss: 0.7548 | Val Acc: 0.8563
-💾 Saving best val acc: 0.8563
-🕒 Epoch 2/3 | Time: 125.95s | Train Loss: 0.6468 | Val Loss: 0.6585 | Val Acc: 0.9049
-💾 Saving best val acc: 0.9049
-🕒 Epoch 3/3 | Time: 126.28s | Train Loss: 0.5912 | Val Loss: 0.5661 | Val Acc: 0.9440
-💾 Saving best val acc: 0.9440
-✅ Training complete in 378.59 seconds. Best model loaded.
+🕒 Epoch 1/100 | Time: 125.81s | Train Loss: 0.9887 | Val Loss: 0.8187 | Val Acc: 0.8134
+💾 Saving best val acc: 0.8134
+🕒 Epoch 2/100 | Time: 122.57s | Train Loss: 0.6631 | Val Loss: 0.6645 | Val Acc: 0.9123
+💾 Saving best val acc: 0.9123
+🕒 Epoch 3/100 | Time: 123.23s | Train Loss: 0.5743 | Val Loss: 0.6035 | Val Acc: 0.9403
+💾 Saving best val acc: 0.9403
+🕒 Epoch 4/100 | Time: 124.47s | Train Loss: 0.5494 | Val Loss: 0.5483 | Val Acc: 0.9571
+💾 Saving best val acc: 0.9571
+🕒 Epoch 5/100 | Time: 123.17s | Train Loss: 0.5280 | Val Loss: 0.5566 | Val Acc: 0.9608
+🕒 Epoch 6/100 | Time: 121.70s | Train Loss: 0.5229 | Val Loss: 0.5184 | Val Acc: 0.9720
+💾 Saving best val acc: 0.9720
+🕒 Epoch 7/100 | Time: 124.59s | Train Loss: 0.4964 | Val Loss: 0.5467 | Val Acc: 0.9534
+🕒 Epoch 8/100 | Time: 124.60s | Train Loss: 0.4932 | Val Loss: 0.5277 | Val Acc: 0.9683
+🕒 Epoch 9/100 | Time: 124.41s | Train Loss: 0.4989 | Val Loss: 0.5425 | Val Acc: 0.9646
+🕒 Epoch 10/100 | Time: 124.17s | Train Loss: 0.4812 | Val Loss: 0.5318 | Val Acc: 0.9664
+🕒 Epoch 11/100 | Time: 123.90s | Train Loss: 0.4877 | Val Loss: 0.5043 | Val Acc: 0.9701
+💾 Saving best val acc: 0.9701
+🕒 Epoch 12/100 | Time: 121.82s | Train Loss: 0.4771 | Val Loss: 0.4979 | Val Acc: 0.9776
+💾 Saving best val acc: 0.9776
+🕒 Epoch 13/100 | Time: 122.18s | Train Loss: 0.4672 | Val Loss: 0.4961 | Val Acc: 0.9776
+💾 Saving best val acc: 0.9776
+🕒 Epoch 14/100 | Time: 121.42s | Train Loss: 0.4701 | Val Loss: 0.5007 | Val Acc: 0.9757
+🕒 Epoch 15/100 | Time: 121.60s | Train Loss: 0.4880 | Val Loss: 0.5230 | Val Acc: 0.9590
+🕒 Epoch 16/100 | Time: 121.77s | Train Loss: 0.4702 | Val Loss: 0.4952 | Val Acc: 0.9776
+💾 Saving best val acc: 0.9776
+🕒 Epoch 17/100 | Time: 124.68s | Train Loss: 0.4622 | Val Loss: 0.5093 | Val Acc: 0.9739
+🕒 Epoch 18/100 | Time: 125.58s | Train Loss: 0.4688 | Val Loss: 0.5340 | Val Acc: 0.9627
+🕒 Epoch 19/100 | Time: 124.72s | Train Loss: 0.4791 | Val Loss: 0.4999 | Val Acc: 0.9813
+🕒 Epoch 20/100 | Time: 124.69s | Train Loss: 0.4697 | Val Loss: 0.5146 | Val Acc: 0.9683
+🕒 Epoch 21/100 | Time: 124.41s | Train Loss: 0.4586 | Val Loss: 0.5229 | Val Acc: 0.9608
+🕒 Epoch 22/100 | Time: 124.84s | Train Loss: 0.4551 | Val Loss: 0.5044 | Val Acc: 0.9757
+🕒 Epoch 23/100 | Time: 125.30s | Train Loss: 0.4577 | Val Loss: 0.4973 | Val Acc: 0.9832
+🕒 Epoch 24/100 | Time: 125.68s | Train Loss: 0.4538 | Val Loss: 0.5022 | Val Acc: 0.9795
+🕒 Epoch 25/100 | Time: 124.81s | Train Loss: 0.4538 | Val Loss: 0.4858 | Val Acc: 0.9869
+💾 Saving best val acc: 0.9869
+🕒 Epoch 26/100 | Time: 123.80s | Train Loss: 0.4628 | Val Loss: 0.5314 | Val Acc: 0.9608
+🕒 Epoch 27/100 | Time: 124.94s | Train Loss: 0.4555 | Val Loss: 0.4792 | Val Acc: 0.9869
+💾 Saving best val acc: 0.9869
+🕒 Epoch 28/100 | Time: 125.70s | Train Loss: 0.4514 | Val Loss: 0.4987 | Val Acc: 0.9739
+🕒 Epoch 29/100 | Time: 124.18s | Train Loss: 0.4495 | Val Loss: 0.4863 | Val Acc: 0.9813
+🕒 Epoch 30/100 | Time: 125.35s | Train Loss: 0.4484 | Val Loss: 0.5023 | Val Acc: 0.9757
+🕒 Epoch 31/100 | Time: 126.81s | Train Loss: 0.4480 | Val Loss: 0.4995 | Val Acc: 0.9720
+🕒 Epoch 32/100 | Time: 124.93s | Train Loss: 0.4497 | Val Loss: 0.4847 | Val Acc: 0.9813
+🕒 Epoch 33/100 | Time: 124.39s | Train Loss: 0.4480 | Val Loss: 0.4867 | Val Acc: 0.9813
+🕒 Epoch 34/100 | Time: 126.10s | Train Loss: 0.4492 | Val Loss: 0.4902 | Val Acc: 0.9795
+🕒 Epoch 35/100 | Time: 124.07s | Train Loss: 0.4480 | Val Loss: 0.4934 | Val Acc: 0.9795
+🕒 Epoch 36/100 | Time: 123.29s | Train Loss: 0.4473 | Val Loss: 0.4882 | Val Acc: 0.9813
+🕒 Epoch 37/100 | Time: 125.04s | Train Loss: 0.4475 | Val Loss: 0.4835 | Val Acc: 0.9795
+⏹️ Early stopping triggered.
+✅ Training complete in 4594.91 seconds. Best model loaded.
 📁 Model saved to ./models/convnext_cbam.pth
 📂 Training metrics plot saved to: output/training_metrics.png
-
-🔥 Test Accuracy: 94.80%
-
-📌 Classification Report:
-                       precision    recall  f1-score   support
-
-     Bacterial Blight       0.96      0.94      0.95        48
-Bacterial Leaf Streak       0.94      0.94      0.94        33
-           Brown Spot       0.92      0.94      0.93       151
-              Healthy       0.97      0.97      0.97       157
-                Hispa       0.96      0.97      0.97       132
-           Leaf Blast       0.93      0.91      0.92       127
-        Sheath Blight       1.00      0.92      0.96        25
-
-             accuracy                           0.95       673
-            macro avg       0.95      0.94      0.95       673
-         weighted avg       0.95      0.95      0.95       673
-
-📂 Confusion matrix saved to: output/confusion_matrix.png
-Traceback (most recent call last):
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/train.py", line 50, in <module>
-    for images, labels in train_loader:
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
-    data = self._next_data()
-           ^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 764, in _next_data
-    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 50, in fetch
-    data = self.dataset.__getitems__(possibly_batched_index)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataset.py", line 420, in __getitems__
-    return [self.dataset[self.indices[idx]] for idx in indices]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataset.py", line 420, in <listcomp>
-    return [self.dataset[self.indices[idx]] for idx in indices]
-            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/datasets/folder.py", line 245, in __getitem__
-    sample = self.loader(path)
-             ^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/datasets/folder.py", line 284, in default_loader
-    return pil_loader(path)
-           ^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/datasets/folder.py", line 264, in pil_loader
-    return img.convert("RGB")
-           ^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/PIL/Image.py", line 984, in convert
-    self.load()
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/PIL/ImageFile.py", line 280, in load
-    s = read(self.decodermaxblock)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/PIL/JpegImagePlugin.py", line 414, in load_read
-    s = self.fp.read(read_bytes)
-        ^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/train.py", line 9, in <module>
-    from utils import plot_training_metrics
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/utils.py", line 3, in <module>
-    import seaborn as sns
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/seaborn/__init__.py", line 5, in <module>
-    from .relational import *  # noqa: F401,F403
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/seaborn/relational.py", line 21, in <module>
-    from ._statistics import EstimateAggregator, WeightedAggregator
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/seaborn/_statistics.py", line 32, in <module>
-    from scipy.stats import gaussian_kde
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/__init__.py", line 624, in <module>
-    from ._stats_py import *
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/_stats_py.py", line 6935, in <module>
-    @_axis_nan_policy_factory(pack_TtestResult, default_axis=0, n_samples=2,
-     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/_axis_nan_policy.py", line 665, in axis_nan_policy_decorator
-    doc = FunctionDoc(axis_nan_policy_wrapper)
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/_lib/_docscrape.py", line 589, in __init__
-    NumpyDocString.__init__(self, doc, config)
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/_lib/_docscrape.py", line 148, in __init__
-    self._parse()
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/_lib/_docscrape.py", line 412, in _parse
-    self[section] = self._parse_param_list(content)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/_lib/_docscrape.py", line 225, in _parse_param_list
-    content = dedent_lines(content)
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/_lib/_docscrape.py", line 575, in dedent_lines
-    return textwrap.dedent("\n".join(lines)).split("\n")
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.11/textwrap.py", line 436, in dedent
-    indents = _leading_whitespace_re.findall(text)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/train.py", line 59, in <module>
-    running_loss += loss.item()
-                    ^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/train.py", line 9, in <module>
-    from utils import plot_training_metrics
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/utils.py", line 3, in <module>
-    import seaborn as sns
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/seaborn/__init__.py", line 5, in <module>
-    from .relational import *  # noqa: F401,F403
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/seaborn/relational.py", line 21, in <module>
-    from ._statistics import EstimateAggregator, WeightedAggregator
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/seaborn/_statistics.py", line 32, in <module>
-    from scipy.stats import gaussian_kde
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/__init__.py", line 624, in <module>
-    from ._stats_py import *
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/_stats_py.py", line 52, in <module>
-    from . import distributions
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/distributions.py", line 10, in <module>
-    from . import _continuous_distns
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/_continuous_distns.py", line 5589, in <module>
-    norminvgauss = norminvgauss_gen(name="norminvgauss")
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 1877, in __init__
-    self._attach_methods()
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 1911, in _attach_methods
-    self._attach_argparser_methods()
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/scipy/stats/_distn_infrastructure.py", line 735, in _attach_argparser_methods
-    exec(self._parse_arg_template, ns)
-  File "<string>", line 0, in <module>
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/train.py", line 59, in <module>
-    running_loss += loss.item()
-                    ^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/train.py", line 59, in <module>
-    running_loss += loss.item()
-                    ^^^^^^^^^^^
-KeyboardInterrupt
-Traceback (most recent call last):
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/train.py", line 50, in <module>
-    for images, labels in train_loader:
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 708, in __next__
-    data = self._next_data()
-           ^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 764, in _next_data
-    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 50, in fetch
-    data = self.dataset.__getitems__(possibly_batched_index)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataset.py", line 420, in __getitems__
-    return [self.dataset[self.indices[idx]] for idx in indices]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/utils/data/dataset.py", line 420, in <listcomp>
-    return [self.dataset[self.indices[idx]] for idx in indices]
-            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/datasets/folder.py", line 247, in __getitem__
-    sample = self.transform(sample)
-             ^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/transforms/transforms.py", line 95, in __call__
-    img = t(img)
-          ^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/transforms/transforms.py", line 354, in forward
-    return F.resize(img, self.size, self.interpolation, self.max_size, self.antialias)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/transforms/functional.py", line 477, in resize
-    return F_pil.resize(img, size=output_size, interpolation=pil_interpolation)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/torchvision/transforms/_functional_pil.py", line 250, in resize
-    return img.resize(tuple(size[::-1]), interpolation)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/media/data3/users/datlht/Rice_leaf_disease_detection/.venv/lib/python3.11/site-packages/PIL/Image.py", line 2356, in resize
-    return self._new(self.im.resize(size, resample, box))
-                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-KeyboardInterrupt
