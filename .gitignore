@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and debug files
+# *.log
+*.out
+*.err
+*.bak
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment and dependencies
+.env
+*.ini
+*.cfg
+*.toml
+requirements.txt
+
+# Ignore model and dataset files
+*.h5
+*.pth  # Ignore PyTorch model checkpoint files
+*.ckpt
+*.onnx
+**/*.pth
+data/
+
+# Cache files
+*.cache/
+*.pkl
+*.npy
+*.npz
+
+# Ignore database files
+*.db
+*.sqlite3
+*.sqlite
+
+# Ignore temporary files
+*.swp
+*.swo
