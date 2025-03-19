@@ -50,3 +50,440 @@
 ✅ Training complete in 4594.91 seconds. Best model loaded.
 📁 Model saved to ./models/convnext_cbam.pth
 📂 Training metrics plot saved to: output/training_metrics.png
+🕒 Epoch 1/100 | Time: 109.00s | Train Loss: 0.7392 | Val Loss: 0.5424 | Val Acc: 0.9539
+💾 Saving best val acc: 0.9539
+🕒 Epoch 2/100 | Time: 96.21s | Train Loss: 0.5088 | Val Loss: 0.4867 | Val Acc: 0.9747
+💾 Saving best val acc: 0.9747
+✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔
+🕒 Epoch 1/100 | Time: 73.75s | Train Loss: 0.7397 | Val Loss: 0.5698 | Val Acc: 0.9516
+💾 Saving best val acc: 0.9516
+🕒 Epoch 2/100 | Time: 73.73s | Train Loss: 0.5089 | Val Loss: 0.5158 | Val Acc: 0.9631
+💾 Saving best val acc: 0.9631
+🕒 Epoch 3/100 | Time: 73.43s | Train Loss: 0.4769 | Val Loss: 0.4868 | Val Acc: 0.9677
+💾 Saving best val acc: 0.9677
+🕒 Epoch 4/100 | Time: 72.90s | Train Loss: 0.4637 | Val Loss: 0.4896 | Val Acc: 0.9700
+🕒 Epoch 5/100 | Time: 73.11s | Train Loss: 0.4635 | Val Loss: 0.4706 | Val Acc: 0.9839
+💾 Saving best val acc: 0.9839
+🕒 Epoch 6/100 | Time: 72.69s | Train Loss: 0.4574 | Val Loss: 0.4590 | Val Acc: 0.9885
+💾 Saving best val acc: 0.9885
+🕒 Epoch 7/100 | Time: 72.03s | Train Loss: 0.4449 | Val Loss: 0.4882 | Val Acc: 0.9724
+🕒 Epoch 8/100 | Time: 73.52s | Train Loss: 0.4485 | Val Loss: 0.4618 | Val Acc: 0.9816
+🕒 Epoch 9/100 | Time: 75.06s | Train Loss: 0.4343 | Val Loss: 0.4600 | Val Acc: 0.9839
+🕒 Epoch 10/100 | Time: 77.08s | Train Loss: 0.4445 | Val Loss: 0.4665 | Val Acc: 0.9816
+🕒 Epoch 11/100 | Time: 73.12s | Train Loss: 0.4473 | Val Loss: 0.5011 | Val Acc: 0.9724
+🕒 Epoch 12/100 | Time: 73.37s | Train Loss: 0.4467 | Val Loss: 0.4805 | Val Acc: 0.9747
+🕒 Epoch 13/100 | Time: 77.94s | Train Loss: 0.4339 | Val Loss: 0.4553 | Val Acc: 0.9816
+💾 Saving best val acc: 0.9816
+🕒 Epoch 14/100 | Time: 76.84s | Train Loss: 0.4354 | Val Loss: 0.4618 | Val Acc: 0.9816
+🕒 Epoch 15/100 | Time: 74.00s | Train Loss: 0.4545 | Val Loss: 0.4945 | Val Acc: 0.9747
+🕒 Epoch 16/100 | Time: 73.68s | Train Loss: 0.4551 | Val Loss: 0.4689 | Val Acc: 0.9839
+🕒 Epoch 17/100 | Time: 74.05s | Train Loss: 0.4321 | Val Loss: 0.4961 | Val Acc: 0.9793
+🕒 Epoch 18/100 | Time: 73.60s | Train Loss: 0.4365 | Val Loss: 0.4600 | Val Acc: 0.9816
+🕒 Epoch 19/100 | Time: 74.95s | Train Loss: 0.4295 | Val Loss: 0.4696 | Val Acc: 0.9747
+🕒 Epoch 20/100 | Time: 80.08s | Train Loss: 0.4262 | Val Loss: 0.4796 | Val Acc: 0.9770
+🕒 Epoch 21/100 | Time: 77.35s | Train Loss: 0.4260 | Val Loss: 0.4569 | Val Acc: 0.9793
+🕒 Epoch 22/100 | Time: 73.56s | Train Loss: 0.4255 | Val Loss: 0.4857 | Val Acc: 0.9747
+🕒 Epoch 23/100 | Time: 74.34s | Train Loss: 0.4271 | Val Loss: 0.4796 | Val Acc: 0.9770
+⏹️ Early stopping triggered.
+✅ Training complete in 1714.32 seconds. Best model loaded.
+📁 Model saved to ./models/convnext_cbam.pth
+📂 Training metrics plot saved to: output/training_metrics.png
+
+🔥 Test Accuracy: 97.97%
+
+📌 Classification Report:
+                       precision    recall  f1-score   support
+
+bacterial_leaf_blight       0.99      0.99      0.99        88
+           brown_spot       0.94      0.97      0.95        93
+              healthy       0.98      1.00      0.99        93
+           leaf_blast       0.98      0.92      0.95        91
+           leaf_scald       1.00      1.00      1.00        90
+    narrow_brown_spot       1.00      1.00      1.00        88
+
+             accuracy                           0.98       543
+            macro avg       0.98      0.98      0.98       543
+         weighted avg       0.98      0.98      0.98       543
+
+📂 Confusion matrix saved to: output/confusion_matrix.png
+Saved 5 merged images in the output/grad_cam folder!
+✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔
+🕒 Epoch 1/100 | Time: 165.20s | Train Loss: 0.9590 | Val Loss: 0.7956 | Val Acc: 0.8190
+💾 Saving best val acc: 0.8190
+🕒 Epoch 2/100 | Time: 123.93s | Train Loss: 0.6665 | Val Loss: 0.6350 | Val Acc: 0.9067
+💾 Saving best val acc: 0.9067
+🕒 Epoch 3/100 | Time: 123.08s | Train Loss: 0.5805 | Val Loss: 0.5896 | Val Acc: 0.9384
+💾 Saving best val acc: 0.9384
+🕒 Epoch 4/100 | Time: 122.95s | Train Loss: 0.5613 | Val Loss: 0.5342 | Val Acc: 0.9646
+💾 Saving best val acc: 0.9646
+🕒 Epoch 5/100 | Time: 123.29s | Train Loss: 0.5216 | Val Loss: 0.5361 | Val Acc: 0.9646
+🕒 Epoch 6/100 | Time: 122.82s | Train Loss: 0.4930 | Val Loss: 0.5575 | Val Acc: 0.9534
+🕒 Epoch 7/100 | Time: 122.47s | Train Loss: 0.5052 | Val Loss: 0.5297 | Val Acc: 0.9590
+💾 Saving best val acc: 0.9590
+🕒 Epoch 8/100 | Time: 124.14s | Train Loss: 0.5083 | Val Loss: 0.5432 | Val Acc: 0.9646
+🕒 Epoch 9/100 | Time: 128.40s | Train Loss: 0.4825 | Val Loss: 0.5141 | Val Acc: 0.9701
+💾 Saving best val acc: 0.9701
+🕒 Epoch 10/100 | Time: 126.19s | Train Loss: 0.4855 | Val Loss: 0.5149 | Val Acc: 0.9683
+🕒 Epoch 11/100 | Time: 124.94s | Train Loss: 0.4734 | Val Loss: 0.5041 | Val Acc: 0.9813
+💾 Saving best val acc: 0.9813
+🕒 Epoch 12/100 | Time: 126.52s | Train Loss: 0.4649 | Val Loss: 0.5139 | Val Acc: 0.9739
+🕒 Epoch 13/100 | Time: 123.74s | Train Loss: 0.4684 | Val Loss: 0.5012 | Val Acc: 0.9757
+💾 Saving best val acc: 0.9757
+🕒 Epoch 14/100 | Time: 124.57s | Train Loss: 0.4787 | Val Loss: 0.5191 | Val Acc: 0.9720
+🕒 Epoch 15/100 | Time: 124.06s | Train Loss: 0.4695 | Val Loss: 0.5480 | Val Acc: 0.9590
+🕒 Epoch 16/100 | Time: 125.03s | Train Loss: 0.4659 | Val Loss: 0.4971 | Val Acc: 0.9757
+💾 Saving best val acc: 0.9757
+🕒 Epoch 17/100 | Time: 125.35s | Train Loss: 0.4718 | Val Loss: 0.5095 | Val Acc: 0.9813
+🕒 Epoch 18/100 | Time: 125.82s | Train Loss: 0.4645 | Val Loss: 0.5133 | Val Acc: 0.9701
+🕒 Epoch 19/100 | Time: 126.57s | Train Loss: 0.4629 | Val Loss: 0.5092 | Val Acc: 0.9757
+🕒 Epoch 20/100 | Time: 124.13s | Train Loss: 0.4564 | Val Loss: 0.5033 | Val Acc: 0.9739
+🕒 Epoch 21/100 | Time: 124.35s | Train Loss: 0.4670 | Val Loss: 0.5101 | Val Acc: 0.9720
+🕒 Epoch 22/100 | Time: 126.09s | Train Loss: 0.4542 | Val Loss: 0.4861 | Val Acc: 0.9832
+💾 Saving best val acc: 0.9832
+🕒 Epoch 23/100 | Time: 124.35s | Train Loss: 0.4523 | Val Loss: 0.4978 | Val Acc: 0.9776
+🕒 Epoch 24/100 | Time: 125.04s | Train Loss: 0.4516 | Val Loss: 0.4792 | Val Acc: 0.9851
+💾 Saving best val acc: 0.9851
+🕒 Epoch 25/100 | Time: 124.33s | Train Loss: 0.4564 | Val Loss: 0.4891 | Val Acc: 0.9795
+🕒 Epoch 26/100 | Time: 124.64s | Train Loss: 0.4571 | Val Loss: 0.5234 | Val Acc: 0.9627
+🕒 Epoch 27/100 | Time: 125.03s | Train Loss: 0.4565 | Val Loss: 0.5029 | Val Acc: 0.9776
+🕒 Epoch 28/100 | Time: 124.66s | Train Loss: 0.4533 | Val Loss: 0.4985 | Val Acc: 0.9720
+🕒 Epoch 29/100 | Time: 126.87s | Train Loss: 0.4526 | Val Loss: 0.4994 | Val Acc: 0.9813
+🕒 Epoch 30/100 | Time: 124.72s | Train Loss: 0.4497 | Val Loss: 0.4996 | Val Acc: 0.9757
+🕒 Epoch 31/100 | Time: 124.29s | Train Loss: 0.4482 | Val Loss: 0.4896 | Val Acc: 0.9739
+🕒 Epoch 32/100 | Time: 134.68s | Train Loss: 0.4502 | Val Loss: 0.4839 | Val Acc: 0.9813
+🕒 Epoch 33/100 | Time: 192.95s | Train Loss: 0.4486 | Val Loss: 0.5031 | Val Acc: 0.9683
+🕒 Epoch 34/100 | Time: 258.05s | Train Loss: 0.4505 | Val Loss: 0.4968 | Val Acc: 0.9739
+⏹️ Early stopping triggered.
+✅ Training complete in 4493.47 seconds. Best model loaded.
+📁 Model saved to ./models/convnext_cbam.pth
+📂 Training metrics plot saved to: output/training_metrics.png
+✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG-no-residual]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔
+🕒 Epoch 1/100 | Time: 126.37s | Train Loss: 1.5453 | Val Loss: 1.3410 | Val Acc: 0.4925
+💾 Saving best val acc: 0.4925
+🕒 Epoch 2/100 | Time: 126.05s | Train Loss: 1.1814 | Val Loss: 0.9140 | Val Acc: 0.7873
+💾 Saving best val acc: 0.7873
+🕒 Epoch 3/100 | Time: 126.04s | Train Loss: 0.8064 | Val Loss: 0.7620 | Val Acc: 0.8638
+💾 Saving best val acc: 0.8638
+🕒 Epoch 4/100 | Time: 124.27s | Train Loss: 0.7304 | Val Loss: 0.7408 | Val Acc: 0.8750
+💾 Saving best val acc: 0.8750
+🕒 Epoch 5/100 | Time: 119.36s | Train Loss: 0.6369 | Val Loss: 0.6254 | Val Acc: 0.9291
+💾 Saving best val acc: 0.9291
+🕒 Epoch 6/100 | Time: 126.95s | Train Loss: 0.5884 | Val Loss: 0.6245 | Val Acc: 0.9104
+💾 Saving best val acc: 0.9104
+🕒 Epoch 7/100 | Time: 126.85s | Train Loss: 0.5907 | Val Loss: 0.6175 | Val Acc: 0.9198
+💾 Saving best val acc: 0.9198
+🕒 Epoch 8/100 | Time: 128.03s | Train Loss: 0.6170 | Val Loss: 0.7168 | Val Acc: 0.8881
+🕒 Epoch 9/100 | Time: 130.36s | Train Loss: 0.5943 | Val Loss: 0.6241 | Val Acc: 0.9235
+🕒 Epoch 10/100 | Time: 128.62s | Train Loss: 0.5451 | Val Loss: 0.6036 | Val Acc: 0.9291
+💾 Saving best val acc: 0.9291
+🕒 Epoch 11/100 | Time: 128.62s | Train Loss: 0.5182 | Val Loss: 0.5540 | Val Acc: 0.9515
+💾 Saving best val acc: 0.9515
+🕒 Epoch 12/100 | Time: 127.81s | Train Loss: 0.5071 | Val Loss: 0.5695 | Val Acc: 0.9403
+🕒 Epoch 13/100 | Time: 127.53s | Train Loss: 0.5035 | Val Loss: 0.5272 | Val Acc: 0.9608
+💾 Saving best val acc: 0.9608
+🕒 Epoch 14/100 | Time: 127.09s | Train Loss: 0.4918 | Val Loss: 0.6938 | Val Acc: 0.8937
+🕒 Epoch 15/100 | Time: 126.98s | Train Loss: 0.5443 | Val Loss: 0.6066 | Val Acc: 0.9216
+🕒 Epoch 16/100 | Time: 126.67s | Train Loss: 0.5094 | Val Loss: 0.5406 | Val Acc: 0.9534
+🕒 Epoch 17/100 | Time: 126.82s | Train Loss: 0.4876 | Val Loss: 0.5569 | Val Acc: 0.9552
+🕒 Epoch 18/100 | Time: 126.84s | Train Loss: 0.4884 | Val Loss: 0.5365 | Val Acc: 0.9571
+🕒 Epoch 19/100 | Time: 127.62s | Train Loss: 0.4705 | Val Loss: 0.5099 | Val Acc: 0.9739
+💾 Saving best val acc: 0.9739
+🕒 Epoch 20/100 | Time: 126.71s | Train Loss: 0.4722 | Val Loss: 0.5581 | Val Acc: 0.9552
+🕒 Epoch 21/100 | Time: 126.63s | Train Loss: 0.4716 | Val Loss: 0.5553 | Val Acc: 0.9478
+🕒 Epoch 22/100 | Time: 126.76s | Train Loss: 0.4820 | Val Loss: 0.5261 | Val Acc: 0.9646
+🕒 Epoch 23/100 | Time: 126.87s | Train Loss: 0.4670 | Val Loss: 0.5324 | Val Acc: 0.9608
+🕒 Epoch 24/100 | Time: 127.35s | Train Loss: 0.4690 | Val Loss: 0.5456 | Val Acc: 0.9590
+🕒 Epoch 25/100 | Time: 126.47s | Train Loss: 0.4666 | Val Loss: 0.5329 | Val Acc: 0.9646
+🕒 Epoch 26/100 | Time: 126.52s | Train Loss: 0.4634 | Val Loss: 0.5321 | Val Acc: 0.9590
+🕒 Epoch 27/100 | Time: 126.39s | Train Loss: 0.4623 | Val Loss: 0.5195 | Val Acc: 0.9683
+🕒 Epoch 28/100 | Time: 126.04s | Train Loss: 0.4544 | Val Loss: 0.5205 | Val Acc: 0.9701
+🕒 Epoch 29/100 | Time: 126.46s | Train Loss: 0.4619 | Val Loss: 0.5254 | Val Acc: 0.9590
+⏹️ Early stopping triggered.
+✅ Training complete in 3675.30 seconds. Best model loaded.
+📁 Model saved to ./models/convnext_cbam.pth
+📂 Training metrics plot saved to: output/training_metrics.png
+
+🔥 Test Accuracy: 95.84%
+
+📌 Classification Report:
+                       precision    recall  f1-score   support
+
+     Bacterial Blight       1.00      0.90      0.95        48
+Bacterial Leaf Streak       0.97      1.00      0.99        33
+           Brown Spot       0.96      0.93      0.95       151
+              Healthy       0.96      0.98      0.97       157
+                Hispa       0.98      0.99      0.98       132
+           Leaf Blast       0.94      0.94      0.94       127
+        Sheath Blight       0.82      0.92      0.87        25
+
+             accuracy                           0.96       673
+            macro avg       0.95      0.95      0.95       673
+         weighted avg       0.96      0.96      0.96       673
+
+📂 Confusion matrix saved to: output/confusion_matrix.png
+Saved 8 merged gradCAM images in the output/grad_cam folder!
+✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔
+🕒 Epoch 1/100 | Time: 179.19s | Train Loss: 1.8233 | Val Loss: 1.8189 | Val Acc: 0.2071
+💾 Saving best val acc: 0.2071
+🕒 Epoch 2/100 | Time: 131.69s | Train Loss: 1.8113 | Val Loss: 1.8172 | Val Acc: 0.2295
+💾 Saving best val acc: 0.2295
+🕒 Epoch 3/100 | Time: 132.24s | Train Loss: 1.8120 | Val Loss: 1.8127 | Val Acc: 0.2295
+💾 Saving best val acc: 0.2295
+🕒 Epoch 4/100 | Time: 132.61s | Train Loss: 1.8098 | Val Loss: 1.8218 | Val Acc: 0.2071
+🕒 Epoch 5/100 | Time: 131.69s | Train Loss: 1.8104 | Val Loss: 1.8119 | Val Acc: 0.2071
+💾 Saving best val acc: 0.2071
+🕒 Epoch 6/100 | Time: 131.69s | Train Loss: 1.8077 | Val Loss: 1.8123 | Val Acc: 0.2071
+🕒 Epoch 7/100 | Time: 131.56s | Train Loss: 1.8067 | Val Loss: 1.8070 | Val Acc: 0.2295
+💾 Saving best val acc: 0.2295
+🕒 Epoch 8/100 | Time: 132.64s | Train Loss: 1.8065 | Val Loss: 1.8110 | Val Acc: 0.2295
+✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔
+🕒 Epoch 1/100 | Time: 94.69s | Train Loss: 1.8074 | Val Loss: 1.7525 | Val Acc: 0.2519
+💾 Saving best val acc: 0.2519
+🕒 Epoch 2/100 | Time: 91.85s | Train Loss: 1.6988 | Val Loss: 1.6656 | Val Acc: 0.2966
+💾 Saving best val acc: 0.2966
+🕒 Epoch 3/100 | Time: 92.61s | Train Loss: 1.6385 | Val Loss: 1.6422 | Val Acc: 0.3433
+💾 Saving best val acc: 0.3433
+🕒 Epoch 4/100 | Time: 92.28s | Train Loss: 1.5757 | Val Loss: 1.5472 | Val Acc: 0.4086
+💾 Saving best val acc: 0.4086
+🕒 Epoch 5/100 | Time: 92.77s | Train Loss: 1.5448 | Val Loss: 1.4794 | Val Acc: 0.4179
+💾 Saving best val acc: 0.4179
+🕒 Epoch 6/100 | Time: 111.82s | Train Loss: 1.4728 | Val Loss: 1.4353 | Val Acc: 0.4291
+💾 Saving best val acc: 0.4291
+🕒 Epoch 7/100 | Time: 136.17s | Train Loss: 1.4138 | Val Loss: 1.3062 | Val Acc: 0.5392
+💾 Saving best val acc: 0.5392
+🕒 Epoch 8/100 | Time: 94.36s | Train Loss: 1.3552 | Val Loss: 1.2702 | Val Acc: 0.5821
+💾 Saving best val acc: 0.5821
+🕒 Epoch 9/100 | Time: 94.50s | Train Loss: 1.2974 | Val Loss: 1.2188 | Val Acc: 0.6138
+💾 Saving best val acc: 0.6138
+🕒 Epoch 10/100 | Time: 88.62s | Train Loss: 1.2575 | Val Loss: 1.2007 | Val Acc: 0.6063
+💾 Saving best val acc: 0.6063
+🕒 Epoch 11/100 | Time: 94.03s | Train Loss: 1.2097 | Val Loss: 1.0689 | Val Acc: 0.6903
+💾 Saving best val acc: 0.6903
+🕒 Epoch 12/100 | Time: 94.75s | Train Loss: 1.1599 | Val Loss: 1.0897 | Val Acc: 0.7034
+🕒 Epoch 13/100 | Time: 96.46s | Train Loss: 1.1118 | Val Loss: 1.0102 | Val Acc: 0.7183
+💾 Saving best val acc: 0.7183
+🕒 Epoch 14/100 | Time: 96.42s | Train Loss: 1.0461 | Val Loss: 0.9923 | Val Acc: 0.7295
+💾 Saving best val acc: 0.7295
+🕒 Epoch 15/100 | Time: 95.89s | Train Loss: 1.0309 | Val Loss: 0.9341 | Val Acc: 0.7668
+💾 Saving best val acc: 0.7668
+🕒 Epoch 16/100 | Time: 95.24s | Train Loss: 0.9735 | Val Loss: 0.9102 | Val Acc: 0.7761
+💾 Saving best val acc: 0.7761
+🕒 Epoch 17/100 | Time: 94.14s | Train Loss: 0.9559 | Val Loss: 0.8757 | Val Acc: 0.7929
+💾 Saving best val acc: 0.7929
+🕒 Epoch 18/100 | Time: 95.70s | Train Loss: 0.8957 | Val Loss: 0.8262 | Val Acc: 0.8209
+💾 Saving best val acc: 0.8209
+🕒 Epoch 19/100 | Time: 94.94s | Train Loss: 0.9033 | Val Loss: 0.8449 | Val Acc: 0.8116
+🕒 Epoch 20/100 | Time: 96.52s | Train Loss: 0.8479 | Val Loss: 0.7851 | Val Acc: 0.8358
+💾 Saving best val acc: 0.8358
+🕒 Epoch 21/100 | Time: 95.27s | Train Loss: 0.8156 | Val Loss: 0.7946 | Val Acc: 0.8451
+🕒 Epoch 22/100 | Time: 95.04s | Train Loss: 0.8173 | Val Loss: 0.7679 | Val Acc: 0.8601
+💾 Saving best val acc: 0.8601
+🕒 Epoch 23/100 | Time: 95.01s | Train Loss: 0.8058 | Val Loss: 0.7562 | Val Acc: 0.8619
+💾 Saving best val acc: 0.8619
+🕒 Epoch 24/100 | Time: 96.35s | Train Loss: 0.7643 | Val Loss: 0.7152 | Val Acc: 0.8769
+💾 Saving best val acc: 0.8769
+🕒 Epoch 25/100 | Time: 96.86s | Train Loss: 0.7461 | Val Loss: 0.7426 | Val Acc: 0.8806
+🕒 Epoch 26/100 | Time: 94.74s | Train Loss: 0.7603 | Val Loss: 0.7374 | Val Acc: 0.8713
+🕒 Epoch 27/100 | Time: 95.14s | Train Loss: 0.7335 | Val Loss: 0.7273 | Val Acc: 0.8657
+🕒 Epoch 28/100 | Time: 95.49s | Train Loss: 0.7216 | Val Loss: 0.7010 | Val Acc: 0.8675
+💾 Saving best val acc: 0.8675
+🕒 Epoch 29/100 | Time: 95.52s | Train Loss: 0.7096 | Val Loss: 0.7535 | Val Acc: 0.8507
+🕒 Epoch 30/100 | Time: 95.55s | Train Loss: 0.7153 | Val Loss: 0.7085 | Val Acc: 0.8862
+🕒 Epoch 31/100 | Time: 94.32s | Train Loss: 0.7043 | Val Loss: 0.6931 | Val Acc: 0.8974
+💾 Saving best val acc: 0.8974
+🕒 Epoch 32/100 | Time: 95.79s | Train Loss: 0.6875 | Val Loss: 0.7040 | Val Acc: 0.8862
+🕒 Epoch 33/100 | Time: 95.80s | Train Loss: 0.6770 | Val Loss: 0.7070 | Val Acc: 0.8825
+🕒 Epoch 34/100 | Time: 95.72s | Train Loss: 0.6591 | Val Loss: 0.6856 | Val Acc: 0.9011
+💾 Saving best val acc: 0.9011
+🕒 Epoch 35/100 | Time: 95.48s | Train Loss: 0.6697 | Val Loss: 0.6664 | Val Acc: 0.8955
+💾 Saving best val acc: 0.8955
+🕒 Epoch 36/100 | Time: 95.49s | Train Loss: 0.6358 | Val Loss: 0.6876 | Val Acc: 0.8993
+🕒 Epoch 37/100 | Time: 96.04s | Train Loss: 0.6576 | Val Loss: 0.6642 | Val Acc: 0.9104
+💾 Saving best val acc: 0.9104
+🕒 Epoch 38/100 | Time: 94.71s | Train Loss: 0.6349 | Val Loss: 0.6649 | Val Acc: 0.9067
+🕒 Epoch 39/100 | Time: 94.60s | Train Loss: 0.6303 | Val Loss: 0.6639 | Val Acc: 0.9049
+💾 Saving best val acc: 0.9049
+🕒 Epoch 40/100 | Time: 95.00s | Train Loss: 0.6234 | Val Loss: 0.6883 | Val Acc: 0.8862
+🕒 Epoch 41/100 | Time: 94.74s | Train Loss: 0.6275 | Val Loss: 0.6554 | Val Acc: 0.9086
+💾 Saving best val acc: 0.9086
+🕒 Epoch 42/100 | Time: 95.25s | Train Loss: 0.6072 | Val Loss: 0.6619 | Val Acc: 0.8862
+🕒 Epoch 43/100 | Time: 94.93s | Train Loss: 0.6163 | Val Loss: 0.6457 | Val Acc: 0.9067
+💾 Saving best val acc: 0.9067
+🕒 Epoch 44/100 | Time: 94.88s | Train Loss: 0.6282 | Val Loss: 0.6656 | Val Acc: 0.8974
+🕒 Epoch 45/100 | Time: 93.71s | Train Loss: 0.6231 | Val Loss: 0.6525 | Val Acc: 0.9011
+🕒 Epoch 46/100 | Time: 94.48s | Train Loss: 0.6165 | Val Loss: 0.6719 | Val Acc: 0.8993
+✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔
+🕒 Epoch 1/100 | Time: 97.95s | Train Loss: 1.8111 | Val Loss: 1.7493 | Val Acc: 0.2146
+💾 Saving best val acc: 0.2146
+🕒 Epoch 2/100 | Time: 94.52s | Train Loss: 1.7020 | Val Loss: 2.6828 | Val Acc: 0.2836
+🕒 Epoch 3/100 | Time: 93.34s | Train Loss: 1.6423 | Val Loss: 1.6268 | Val Acc: 0.3451
+💾 Saving best val acc: 0.3451
+🕒 Epoch 4/100 | Time: 92.49s | Train Loss: 1.5558 | Val Loss: 1.5111 | Val Acc: 0.3750
+💾 Saving best val acc: 0.3750
+🕒 Epoch 5/100 | Time: 91.99s | Train Loss: 1.4823 | Val Loss: 1.3402 | Val Acc: 0.5410
+💾 Saving best val acc: 0.5410
+🕒 Epoch 6/100 | Time: 93.41s | Train Loss: 1.4100 | Val Loss: 1.3880 | Val Acc: 0.4795
+🕒 Epoch 7/100 | Time: 93.46s | Train Loss: 1.3406 | Val Loss: 1.2308 | Val Acc: 0.6045
+💾 Saving best val acc: 0.6045
+🕒 Epoch 8/100 | Time: 94.49s | Train Loss: 1.2800 | Val Loss: 1.1518 | Val Acc: 0.6660
+💾 Saving best val acc: 0.6660
+🕒 Epoch 9/100 | Time: 95.08s | Train Loss: 1.2035 | Val Loss: 1.1463 | Val Acc: 0.6549
+💾 Saving best val acc: 0.6549
+🕒 Epoch 10/100 | Time: 94.02s | Train Loss: 1.1629 | Val Loss: 1.0574 | Val Acc: 0.7108
+💾 Saving best val acc: 0.7108
+🕒 Epoch 11/100 | Time: 93.35s | Train Loss: 1.0950 | Val Loss: 1.1871 | Val Acc: 0.6530
+🕒 Epoch 12/100 | Time: 92.85s | Train Loss: 1.0481 | Val Loss: 0.9250 | Val Acc: 0.7799
+💾 Saving best val acc: 0.7799
+🕒 Epoch 13/100 | Time: 93.69s | Train Loss: 0.9789 | Val Loss: 0.9347 | Val Acc: 0.7761
+🕒 Epoch 14/100 | Time: 94.12s | Train Loss: 0.9479 | Val Loss: 0.9027 | Val Acc: 0.7948
+💾 Saving best val acc: 0.7948
+🕒 Epoch 15/100 | Time: 94.55s | Train Loss: 0.9072 | Val Loss: 0.8256 | Val Acc: 0.8246
+💾 Saving best val acc: 0.8246
+🕒 Epoch 16/100 | Time: 95.64s | Train Loss: 0.8968 | Val Loss: 0.8601 | Val Acc: 0.8116
+🕒 Epoch 17/100 | Time: 94.26s | Train Loss: 0.8792 | Val Loss: 0.7950 | Val Acc: 0.8340
+💾 Saving best val acc: 0.8340
+🕒 Epoch 18/100 | Time: 94.67s | Train Loss: 0.8102 | Val Loss: 0.7698 | Val Acc: 0.8526
+💾 Saving best val acc: 0.8526
+🕒 Epoch 19/100 | Time: 96.44s | Train Loss: 0.8267 | Val Loss: 0.7732 | Val Acc: 0.8545
+🕒 Epoch 20/100 | Time: 95.84s | Train Loss: 0.7918 | Val Loss: 0.7397 | Val Acc: 0.8638
+💾 Saving best val acc: 0.8638
+🕒 Epoch 21/100 | Time: 94.60s | Train Loss: 0.7647 | Val Loss: 0.7268 | Val Acc: 0.8713
+💾 Saving best val acc: 0.8713
+🕒 Epoch 22/100 | Time: 94.60s | Train Loss: 0.7286 | Val Loss: 0.6899 | Val Acc: 0.8769
+💾 Saving best val acc: 0.8769
+🕒 Epoch 23/100 | Time: 94.16s | Train Loss: 0.7400 | Val Loss: 0.7304 | Val Acc: 0.8731
+🕒 Epoch 24/100 | Time: 94.23s | Train Loss: 0.7114 | Val Loss: 0.6932 | Val Acc: 0.8881
+🕒 Epoch 25/100 | Time: 94.16s | Train Loss: 0.6885 | Val Loss: 0.6772 | Val Acc: 0.8843
+💾 Saving best val acc: 0.8843
+🕒 Epoch 26/100 | Time: 94.85s | Train Loss: 0.6909 | Val Loss: 0.6677 | Val Acc: 0.8881
+💾 Saving best val acc: 0.8881
+🕒 Epoch 27/100 | Time: 94.93s | Train Loss: 0.6630 | Val Loss: 0.6536 | Val Acc: 0.9160
+💾 Saving best val acc: 0.9160
+🕒 Epoch 28/100 | Time: 95.29s | Train Loss: 0.6397 | Val Loss: 0.6471 | Val Acc: 0.9179
+💾 Saving best val acc: 0.9179
+🕒 Epoch 29/100 | Time: 94.76s | Train Loss: 0.6392 | Val Loss: 0.6656 | Val Acc: 0.8899
+🕒 Epoch 30/100 | Time: 96.17s | Train Loss: 0.6401 | Val Loss: 0.6325 | Val Acc: 0.9160
+💾 Saving best val acc: 0.9160
+🕒 Epoch 31/100 | Time: 93.93s | Train Loss: 0.6321 | Val Loss: 0.6216 | Val Acc: 0.9216
+💾 Saving best val acc: 0.9216
+🕒 Epoch 32/100 | Time: 93.64s | Train Loss: 0.6246 | Val Loss: 0.6344 | Val Acc: 0.9160
+🕒 Epoch 33/100 | Time: 93.09s | Train Loss: 0.6144 | Val Loss: 0.6235 | Val Acc: 0.9179
+🕒 Epoch 34/100 | Time: 93.33s | Train Loss: 0.5980 | Val Loss: 0.6296 | Val Acc: 0.9160
+🕒 Epoch 35/100 | Time: 93.18s | Train Loss: 0.5942 | Val Loss: 0.6187 | Val Acc: 0.9198
+💾 Saving best val acc: 0.9198
+🕒 Epoch 36/100 | Time: 93.11s | Train Loss: 0.5855 | Val Loss: 0.6220 | Val Acc: 0.9160
+🕒 Epoch 37/100 | Time: 93.08s | Train Loss: 0.5998 | Val Loss: 0.6200 | Val Acc: 0.9254
+🕒 Epoch 38/100 | Time: 93.55s | Train Loss: 0.5892 | Val Loss: 0.6048 | Val Acc: 0.9272
+💾 Saving best val acc: 0.9272
+🕒 Epoch 39/100 | Time: 94.14s | Train Loss: 0.5806 | Val Loss: 0.6068 | Val Acc: 0.9272
+🕒 Epoch 40/100 | Time: 94.86s | Train Loss: 0.5811 | Val Loss: 0.5892 | Val Acc: 0.9403
+💾 Saving best val acc: 0.9403
+🕒 Epoch 41/100 | Time: 94.63s | Train Loss: 0.5857 | Val Loss: 0.5963 | Val Acc: 0.9366
+🕒 Epoch 42/100 | Time: 94.45s | Train Loss: 0.5672 | Val Loss: 0.6054 | Val Acc: 0.9216
+🕒 Epoch 43/100 | Time: 94.94s | Train Loss: 0.5578 | Val Loss: 0.6052 | Val Acc: 0.9291
+🕒 Epoch 44/100 | Time: 95.38s | Train Loss: 0.5686 | Val Loss: 0.5942 | Val Acc: 0.9310
+🕒 Epoch 45/100 | Time: 96.47s | Train Loss: 0.5573 | Val Loss: 0.6062 | Val Acc: 0.9272
+🕒 Epoch 46/100 | Time: 94.55s | Train Loss: 0.5718 | Val Loss: 0.6002 | Val Acc: 0.9403
+🕒 Epoch 47/100 | Time: 95.42s | Train Loss: 0.5613 | Val Loss: 0.6037 | Val Acc: 0.9347
+🕒 Epoch 48/100 | Time: 95.54s | Train Loss: 0.5614 | Val Loss: 0.5871 | Val Acc: 0.9310
+💾 Saving best val acc: 0.9310
+🕒 Epoch 49/100 | Time: 98.02s | Train Loss: 0.5645 | Val Loss: 0.6124 | Val Acc: 0.9291
+🕒 Epoch 50/100 | Time: 95.89s | Train Loss: 0.5625 | Val Loss: 0.5886 | Val Acc: 0.9478
+🕒 Epoch 51/100 | Time: 96.42s | Train Loss: 0.5630 | Val Loss: 0.6128 | Val Acc: 0.9291
+🕒 Epoch 52/100 | Time: 96.83s | Train Loss: 0.5543 | Val Loss: 0.6037 | Val Acc: 0.9272
+🕒 Epoch 53/100 | Time: 97.51s | Train Loss: 0.5631 | Val Loss: 0.5937 | Val Acc: 0.9272
+🕒 Epoch 54/100 | Time: 95.70s | Train Loss: 0.5717 | Val Loss: 0.6032 | Val Acc: 0.9347
+🕒 Epoch 55/100 | Time: 99.60s | Train Loss: 0.5539 | Val Loss: 0.5712 | Val Acc: 0.9403
+💾 Saving best val acc: 0.9403
+🕒 Epoch 56/100 | Time: 95.55s | Train Loss: 0.5656 | Val Loss: 0.5975 | Val Acc: 0.9366
+🕒 Epoch 57/100 | Time: 95.59s | Train Loss: 0.5542 | Val Loss: 0.6056 | Val Acc: 0.9328
+🕒 Epoch 58/100 | Time: 96.34s | Train Loss: 0.5643 | Val Loss: 0.6043 | Val Acc: 0.9347
+✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG convnext+1 cbam]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔
+🕒 Epoch 1/100 | Time: 128.99s | Train Loss: 0.9800 | Val Loss: 0.7469 | Val Acc: 0.8694
+💾 Saving best val acc: 0.8694
+🕒 Epoch 2/100 | Time: 127.60s | Train Loss: 0.6634 | Val Loss: 0.6375 | Val Acc: 0.9160
+💾 Saving best val acc: 0.9160
+🕒 Epoch 3/100 | Time: 127.72s | Train Loss: 0.5818 | Val Loss: 0.6238 | Val Acc: 0.9198
+💾 Saving best val acc: 0.9198
+🕒 Epoch 4/100 | Time: 127.87s | Train Loss: 0.5467 | Val Loss: 0.5680 | Val Acc: 0.9459
+💾 Saving best val acc: 0.9459
+🕒 Epoch 5/100 | Time: 128.15s | Train Loss: 0.5232 | Val Loss: 0.5550 | Val Acc: 0.9459
+💾 Saving best val acc: 0.9459
+🕒 Epoch 6/100 | Time: 128.60s | Train Loss: 0.4939 | Val Loss: 0.5364 | Val Acc: 0.9590
+💾 Saving best val acc: 0.9590
+🕒 Epoch 7/100 | Time: 128.81s | Train Loss: 0.5192 | Val Loss: 0.5523 | Val Acc: 0.9590
+🕒 Epoch 8/100 | Time: 128.99s | Train Loss: 0.5023 | Val Loss: 0.5162 | Val Acc: 0.9701
+💾 Saving best val acc: 0.9701
+🕒 Epoch 9/100 | Time: 128.64s | Train Loss: 0.4969 | Val Loss: 0.5278 | Val Acc: 0.9664
+🕒 Epoch 10/100 | Time: 129.22s | Train Loss: 0.4896 | Val Loss: 0.5344 | Val Acc: 0.9627
+🕒 Epoch 11/100 | Time: 129.85s | Train Loss: 0.4771 | Val Loss: 0.5093 | Val Acc: 0.9739
+💾 Saving best val acc: 0.9739
+🕒 Epoch 12/100 | Time: 132.10s | Train Loss: 0.4843 | Val Loss: 0.5153 | Val Acc: 0.9701
+🕒 Epoch 13/100 | Time: 132.05s | Train Loss: 0.4774 | Val Loss: 0.5359 | Val Acc: 0.9701
+🕒 Epoch 14/100 | Time: 131.60s | Train Loss: 0.4700 | Val Loss: 0.5081 | Val Acc: 0.9813
+💾 Saving best val acc: 0.9813
+🕒 Epoch 15/100 | Time: 131.52s | Train Loss: 0.4798 | Val Loss: 0.5082 | Val Acc: 0.9701
+🕒 Epoch 16/100 | Time: 132.04s | Train Loss: 0.4739 | Val Loss: 0.5468 | Val Acc: 0.9534
+🕒 Epoch 17/100 | Time: 133.01s | Train Loss: 0.4596 | Val Loss: 0.5095 | Val Acc: 0.9701
+🕒 Epoch 18/100 | Time: 133.01s | Train Loss: 0.4710 | Val Loss: 0.5015 | Val Acc: 0.9795
+💾 Saving best val acc: 0.9795
+🕒 Epoch 19/100 | Time: 488.22s | Train Loss: 0.4591 | Val Loss: 0.4863 | Val Acc: 0.9851
+💾 Saving best val acc: 0.9851
+🕒 Epoch 20/100 | Time: 409.83s | Train Loss: 0.4623 | Val Loss: 0.4912 | Val Acc: 0.9795
+🕒 Epoch 21/100 | Time: 160.34s | Train Loss: 0.4553 | Val Loss: 0.4945 | Val Acc: 0.9776
+🕒 Epoch 22/100 | Time: 169.51s | Train Loss: 0.4605 | Val Loss: 0.5234 | Val Acc: 0.9664
+🕒 Epoch 23/100 | Time: 220.42s | Train Loss: 0.4643 | Val Loss: 0.4870 | Val Acc: 0.9776
+🕒 Epoch 24/100 | Time: 195.59s | Train Loss: 0.4578 | Val Loss: 0.4856 | Val Acc: 0.9813
+💾 Saving best val acc: 0.9813
+🕒 Epoch 25/100 | Time: 192.52s | Train Loss: 0.4559 | Val Loss: 0.4873 | Val Acc: 0.9795
+🕒 Epoch 26/100 | Time: 229.54s | Train Loss: 0.4563 | Val Loss: 0.4904 | Val Acc: 0.9832
+🕒 Epoch 27/100 | Time: 272.98s | Train Loss: 0.4530 | Val Loss: 0.4811 | Val Acc: 0.9832
+💾 Saving best val acc: 0.9832
+🕒 Epoch 28/100 | Time: 279.92s | Train Loss: 0.4552 | Val Loss: 0.5079 | Val Acc: 0.9701
+🕒 Epoch 29/100 | Time: 238.27s | Train Loss: 0.4507 | Val Loss: 0.4898 | Val Acc: 0.9795
+🕒 Epoch 30/100 | Time: 143.72s | Train Loss: 0.4497 | Val Loss: 0.4786 | Val Acc: 0.9851
+💾 Saving best val acc: 0.9851
+🕒 Epoch 31/100 | Time: 236.84s | Train Loss: 0.4486 | Val Loss: 0.4971 | Val Acc: 0.9757
+🕒 Epoch 32/100 | Time: 407.83s | Train Loss: 0.4509 | Val Loss: 0.5062 | Val Acc: 0.9739
+🕒 Epoch 33/100 | Time: 322.46s | Train Loss: 0.4481 | Val Loss: 0.4815 | Val Acc: 0.9832
+🕒 Epoch 34/100 | Time: 167.62s | Train Loss: 0.4488 | Val Loss: 0.4892 | Val Acc: 0.9776
+🕒 Epoch 35/100 | Time: 255.56s | Train Loss: 0.4499 | Val Loss: 0.4966 | Val Acc: 0.9776
+🕒 Epoch 36/100 | Time: 314.08s | Train Loss: 0.4484 | Val Loss: 0.4848 | Val Acc: 0.9776
+🕒 Epoch 37/100 | Time: 218.22s | Train Loss: 0.4485 | Val Loss: 0.4838 | Val Acc: 0.9869
+🕒 Epoch 38/100 | Time: 163.66s | Train Loss: 0.4483 | Val Loss: 0.4838 | Val Acc: 0.9757
+🕒 Epoch 39/100 | Time: 179.89s | Train Loss: 0.4478 | Val Loss: 0.4959 | Val Acc: 0.9776
+🕒 Epoch 40/100 | Time: 169.94s | Train Loss: 0.4474 | Val Loss: 0.5031 | Val Acc: 0.9739
+⏹️ Early stopping triggered.
+✅ Training complete in 7779.06 seconds. Best model loaded.
+📁 Model saved to ./models/convnext_cbam.pth
+📂 Training metrics plot saved to: output/training_metrics.png
+
+🔥 Test Accuracy: 98.37%
+
+📌 Classification Report:
+                       precision    recall  f1-score   support
+
+     Bacterial Blight       1.00      0.98      0.99        48
+Bacterial Leaf Streak       1.00      1.00      1.00        33
+           Brown Spot       0.97      0.98      0.97       151
+              Healthy       1.00      0.99      0.99       157
+                Hispa       0.98      1.00      0.99       132
+           Leaf Blast       0.98      0.97      0.98       127
+        Sheath Blight       0.96      0.96      0.96        25
+
+             accuracy                           0.98       673
+            macro avg       0.98      0.98      0.98       673
+         weighted avg       0.98      0.98      0.98       673
+
+📂 Confusion matrix saved to: output/confusion_matrix.png
+Saved 8 merged gradCAM images in the output/grad_cam folder!
+Saved misclassified images to output/misclassified_images.png
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

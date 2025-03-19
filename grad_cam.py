@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 import torch
 import torchvision.transforms as transforms
-from config import TEST_DATA_PATH, BATCH_SIZE, DEVICE, MODEL_PATH
+from config import TEST_DATA_PATH, BATCH_SIZE, DEVICE, MODEL_PATH,MODEL_NAME
 import matplotlib.pyplot as plt
 from PIL import Image
 
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     target_layer = model.model.stages[3]
     grad_cam = GradCAM(model, target_layer)
 
-    os.makedirs("output/grad_cam", exist_ok=True)
+    os.makedirs(f"output/{MODEL_NAME}", exist_ok=True)
     random_indices = np.random.choice(len(test_dataset), 64, replace=False)
 
     for batch in range(8):  # 2 batches of 16 images
@@ -101,4 +101,4 @@ if __name__ == "__main__":
         grid = create_grid(images, grid_size=(4, 4))
         grid.save(f"output/grad_cam/grid_batch_{batch+1}.jpg")
 
-    print("Saved 5 merged images in the output/grad_cam folder!")
+    print("Saved 8 merged gradCAM images in the output/grad_cam folder!")

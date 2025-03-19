@@ -10,7 +10,7 @@ from utils import plot_training_metrics
 import config as ENV
 
 torch.cuda.empty_cache()
-
+print(f"✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG: {ENV.MODEL_NAME}]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔")
 # Initialize Model
 device = ENV.DEVICE
 model = ConvNeXt_CBAM(num_classes)

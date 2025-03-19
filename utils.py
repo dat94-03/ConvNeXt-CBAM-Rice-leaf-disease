@@ -82,7 +82,7 @@ def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accura
     plt.title('Training & Validation Accuracy')
     
     # Save the plot
-    plot_path = os.path.join(output_dir, "training_metrics.png")
+    plot_path = os.path.join(output_dir, f"{ENV.MODEL_NAME}.png")
     plt.savefig(plot_path, bbox_inches="tight")
     plt.close()
     

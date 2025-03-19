@@ -10,7 +10,7 @@ class ChannelAttention(nn.Module):
         self.max_pool = nn.AdaptiveMaxPool2d(1)
         self.shared_mlp = nn.Sequential(
             nn.Conv2d(in_planes, in_planes // reduction, 1, bias=False),
-            nn.ReLU(),
+            nn.GELU(),
             nn.Conv2d(in_planes // reduction, in_planes, 1, bias=False)
         )
         self.sigmoid = nn.Sigmoid()
@@ -58,7 +58,10 @@ class CBAM(nn.Module):
                     init.constant_(m.bias, 0)
 
     def forward(self, x):
-        residual = x
+        # residual = x
         x = self.channel_attention(x)
         x = self.spatial_attention(x)
-        return x + residual if x.shape == residual.shape else x
+        return x 
+    # + residual if x.shape == residual.shape else x
+
+
