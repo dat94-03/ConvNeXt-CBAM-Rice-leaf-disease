@@ -6,20 +6,30 @@ import torch.nn.init as init
 class ChannelAttention(nn.Module):
     def __init__(self, in_planes, reduction=16):
         super(ChannelAttention, self).__init__()
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        reduced_planes = max(1, in_planes // reduction)  # Prevent 0 units
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)  # Output shape: (B, C, 1, 1)
         self.max_pool = nn.AdaptiveMaxPool2d(1)
+
         self.shared_mlp = nn.Sequential(
-            nn.Conv2d(in_planes, in_planes // reduction, 1, bias=False),
-            nn.GELU(),
-            nn.Conv2d(in_planes // reduction, in_planes, 1, bias=False)
+            nn.Linear(in_planes, reduced_planes, bias=False),
+            nn.ReLU(inplace=True),
+            nn.Linear(reduced_planes, in_planes, bias=False)
         )
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
-        avg_out = self.shared_mlp(self.avg_pool(x))
-        max_out = self.shared_mlp(self.max_pool(x))
-        out = self.sigmoid(avg_out + max_out)
+        b, c, _, _ = x.size()
+        avg_out = self.avg_pool(x).view(b, c)  # Flatten to (B, C)
+        max_out = self.max_pool(x).view(b, c)
+
+        # Pass through shared MLP
+        avg_out = self.shared_mlp(avg_out)
+        max_out = self.shared_mlp(max_out)
+
+        out = self.sigmoid(avg_out + max_out).view(b, c, 1, 1)  # Reshape for broadcasting
         return x * out
+
+
 
 # Spatial Attention Module
 class SpatialAttention(nn.Module):
@@ -42,7 +52,7 @@ class CBAM(nn.Module):
         self.channel_attention = ChannelAttention(in_channels, reduction)
         self.spatial_attention = SpatialAttention(kernel_size)
         self._init_weights()
-
+    #init weight for the CBAM module
     def _init_weights(self):
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -58,10 +68,8 @@ class CBAM(nn.Module):
                     init.constant_(m.bias, 0)
 
     def forward(self, x):
-        # residual = x
         x = self.channel_attention(x)
         x = self.spatial_attention(x)
-        return x 
-    # + residual if x.shape == residual.shape else x
+        return x
 
 

@@ -1,52 +1,96 @@
-# Rice Disease Classification with ConvNeXt & CBAM
+Here's a clean and professional `README.md` tailored for your rice leaf disease classification project:
 
-This project is a deep learning-based classification model for rice disease detection using a custom ConvNeXt model with CBAM (Convolutional Block Attention Module).
+---
 
-## 📌 Features
-- **ConvNeXt Architecture**: Enhanced with CBAM for better feature extraction.
-- **PyTorch-based**: Efficient deep learning implementation.
-- **Custom Dataset Support**: Works with rice leaf images.
-- **Confusion Matrix & Classification Report**: For performance evaluation.
+# 🌾 Rice Leaf Disease Classification
 
-## 🚀 Installation
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-repo/rice-disease-classification.git
-   cd rice-disease-classification
-   ```
-2. Install dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
+This project aims to classify rice leaf diseases using deep learning models. It supports standard training and K-Fold cross-validation training. After training, results including logs and prediction images will be saved for evaluation and visualization.
 
-## 📂 Project Structure
+---
+
+## 📁 Project Structure
+
 ```
-.
-├── train.py        # Model training script
-├── test.py         # Model evaluation script
-├── model.py        # ConvNeXt_CBAM model definition
-├── utils.py        # Helper functions (evaluation, visualization, etc.)
-├── config.py       # Configuration settings (paths, hyperparameters, etc.)
-├── data/           # Dataset folder (train & test images)
-├── models/         # Saved model weights
-└── README.md       # Documentation
+project-root/
+├── data/                 # Place your dataset here
+├── config.py             # Update config path as needed
+├── run.sh                # Script to run standard training
+├── run_kfold.sh          # Script to run K-Fold training
+├── test.sh               # Script to evaluate trained model
+├── test_kfold.py         # Script to evaluate K-Fold trained model
+├── output/               # Output images and logs are saved here
+└── output.log            # Training and test logs
 ```
 
-## 🏋️‍♂️ Training
-Run the training script:
-```sh
-python train.py
+---
+
+## 🚀 Getting Started
+
+### 1. Place Dataset
+
+Put your dataset inside the `data/` folder located at the project root.
+
+### 2. Update Config
+
+Open `config.py` and update the data path or any other configuration parameters to suit your setup.
+
+```python
+# Example
+DATA_PATH=f"./data/{DATA_SET}"
 ```
 
-## 📊 Evaluation
-Run the test script:
-```sh
-python test.py
+### 3. Train the Model
+
+**Standard Training**
+
+```bash
+bash run.sh
 ```
 
-## 📌 Configuration
-Modify `config.py` to change dataset paths, batch size, learning rate, etc.
+**K-Fold Training** (use this if your dataset only has `train/` and `test/` folders)
 
-## 📞 Contact
-For questions, create an issue in the repository or email me at `your-email@example.com`.
+```bash
+bash run_kfold.sh
+```
 
+All logs will be saved to `output.log`.
+
+---
+
+## 🧪 Testing the Model
+
+After training is complete:
+
+- **Standard model**:
+
+```bash
+bash test.sh
+```
+
+- **K-Fold model**:
+
+```bash
+python test_kfold.py
+```
+
+Logs will be appended to `output.log`. Prediction images will be saved in the `output/` folder.
+
+---
+
+## 📦 Output
+
+After testing:
+
+- Logs: `output.log`
+- Prediction Results: `output/` folder (with visualization images)
+
+---
+
+## 📌 Notes
+
+- Make sure all dependencies are installed (e.g., PyTorch, torchvision, matplotlib, etc.).
+- The model and configuration are customizable for different datasets or experiment settings.
+
+---
+
+Let me know if you'd like to include installation steps, sample images, or model architecture details too!

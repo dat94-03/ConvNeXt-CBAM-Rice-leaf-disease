@@ -3,9 +3,11 @@ import numpy as np
 import cv2
 import torch
 import torchvision.transforms as transforms
-from config import TEST_DATA_PATH, BATCH_SIZE, DEVICE, MODEL_PATH,MODEL_NAME
+from config import DEVICE, MODEL_PATH, MODEL_NAME
 import matplotlib.pyplot as plt
 from PIL import Image
+from collections import defaultdict
+import random
 
 class GradCAM:
     def __init__(self, model, target_layer):
@@ -18,17 +20,17 @@ class GradCAM:
     def hook_layers(self):
         def forward_hook(module, input, output):
             self.activations = output
-        
+
         def backward_hook(module, grad_input, grad_output):
             self.gradients = grad_output[0]
-        
+
         self.target_layer.register_forward_hook(forward_hook)
         self.target_layer.register_full_backward_hook(backward_hook)
 
     def generate_cam(self, input_tensor, class_idx):
         output = self.model(input_tensor)
         self.model.zero_grad()
-        
+
         class_score = output[0, class_idx]
         class_score.backward()
 
@@ -36,14 +38,13 @@ class GradCAM:
         cam = torch.sum(weights * self.activations, dim=1).squeeze().detach().cpu().numpy()
         cam = np.maximum(cam, 0)
 
-        cam = (cam - cam.min()) / (cam.max() - cam.min())
+        cam = (cam - cam.min()) / (cam.max() - cam.min() + 1e-8)  # Avoid divide-by-zero
         return cam
 
 def preprocess_image(image_path):
     transform = transforms.Compose([
         transforms.Resize((224, 224)),  # Fixed size for consistency
         transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
     image = Image.open(image_path).convert("RGB")
     return transform(image).unsqueeze(0), image
@@ -63,30 +64,52 @@ def create_grid(images, grid_size=(4, 4), image_size=(224, 224), background_colo
         x = (i % grid_size[0]) * image_size[0]
         y = (i // grid_size[0]) * image_size[1]
         grid_image.paste(img, (x, y))
-    
+
     return grid_image
 
 if __name__ == "__main__":
     from models.convnext_cbam import ConvNeXt_CBAM
     from load_data import test_dataset, num_classes
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = ConvNeXt_CBAM(num_classes).to(device)
+    model = ConvNeXt_CBAM(num_classes).to(DEVICE)
     model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE)['model_state_dict'])
     model.eval()
 
-    target_layer = model.model.stages[3]
+    target_layer = model.model.stages[3]  # Final ConvNeXt stage
     grad_cam = GradCAM(model, target_layer)
 
-    os.makedirs(f"output/{MODEL_NAME}", exist_ok=True)
-    random_indices = np.random.choice(len(test_dataset), 64, replace=False)
+    os.makedirs(f"output/test/{MODEL_NAME}/grad_cam", exist_ok=True)
 
-    for batch in range(8):  # 2 batches of 16 images
+    # Group samples by class
+    class_to_indices = defaultdict(list)
+    for idx, (path, label) in enumerate(test_dataset.samples):
+        class_to_indices[label].append(idx)
+
+    # Select equal samples from each class (total 64)
+    num_classes = len(class_to_indices)
+    samples_per_class = 64 // num_classes
+
+    fixed_indices = []
+    for label, indices in class_to_indices.items():
+        selected = indices[:min(samples_per_class, len(indices))] 
+        fixed_indices.extend(selected)
+
+    while len(fixed_indices) < 64:
+        for label, indices in class_to_indices.items():
+            if len(fixed_indices) >= 64:
+                break
+            extra = list(set(indices) - set(fixed_indices))
+            if extra:
+                fixed_indices.append(random.choice(extra))
+
+    # random.shuffle(fixed_indices) uncomment if you want to shuffle the selected indices
+
+    for batch in range(8):  # 8 batches of 8 image pairs = 16 images/grid
         images = []
-        for i in range(batch * 8, (batch + 1) * 8):  # 8 original + 8 overlayed
-            image_path = test_dataset.samples[random_indices[i]][0]
+        for i in range(batch * 8, (batch + 1) * 8):
+            image_path = test_dataset.samples[fixed_indices[i]][0]
             input_tensor, original_image = preprocess_image(image_path)
-            input_tensor = input_tensor.to(device)
+            input_tensor = input_tensor.to(DEVICE)
 
             output = model(input_tensor)
             predicted_class = torch.argmax(output, 1).item()
@@ -99,6 +122,6 @@ if __name__ == "__main__":
             images.append(overlayed_image)
 
         grid = create_grid(images, grid_size=(4, 4))
-        grid.save(f"output/grad_cam/grid_batch_{batch+1}.jpg")
+        grid.save(f"output/test/{MODEL_NAME}/grad_cam/grid_batch_{batch + 1}.jpg")
 
-    print("Saved 8 merged gradCAM images in the output/grad_cam folder!")
+    print(f"Saved 8 merged gradCAM images in the output/test/{MODEL_NAME}/grad_cam folder!")

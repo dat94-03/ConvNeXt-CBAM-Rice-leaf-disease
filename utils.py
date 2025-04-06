@@ -6,7 +6,7 @@ import os
 import config as ENV
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
-def evaluate_model(model, test_loader, class_names, output_dir="output"):
+def evaluate_model(model, test_loader, class_names, output_dir=f"output/test/{ENV.MODEL_NAME}"):
     model.eval()
     all_preds, all_labels = [], []
 
@@ -20,11 +20,11 @@ def evaluate_model(model, test_loader, class_names, output_dir="output"):
 
     # Compute and Display Accuracy
     accuracy = accuracy_score(all_labels, all_preds)
-    print(f"\n🔥 Test Accuracy: {accuracy * 100:.2f}%")
+    print(f"\n Test Accuracy: {accuracy * 100:.2f}%")
 
     # Classification Report
-    print("\n📌 Classification Report:")
-    print(classification_report(all_labels, all_preds, target_names=class_names))
+    print("\n Classification Report:")
+    print(classification_report(all_labels, all_preds, target_names=class_names,digits=4))
 
     # Confusion Matrix
     cm = confusion_matrix(all_labels, all_preds)
@@ -43,20 +43,10 @@ def evaluate_model(model, test_loader, class_names, output_dir="output"):
     plt.savefig(output_path, bbox_inches="tight")
     plt.close()
 
-    print(f"📂 Confusion matrix saved to: {output_path}")
+    print(f" Confusion matrix saved to: {output_path}")
 
 
-def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accuracies, output_dir="output"):
-    """
-    Plots training & validation loss and accuracy, then saves the figures.
-    
-    Args:
-        train_losses (list): List of training loss values per epoch.
-        val_losses (list): List of validation loss values per epoch.
-        train_accuracies (list): List of training accuracy values per epoch.
-        val_accuracies (list): List of validation accuracy values per epoch.
-        output_dir (str): Directory where the plots will be saved.
-    """
+def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accuracies, output_dir=f"output/test/{ENV.MODEL_NAME}"):
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
     
@@ -82,9 +72,9 @@ def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accura
     plt.title('Training & Validation Accuracy')
     
     # Save the plot
-    plot_path = os.path.join(output_dir, f"{ENV.MODEL_NAME}.png")
+    plot_path = os.path.join(output_dir, f"training metric.png")
     plt.savefig(plot_path, bbox_inches="tight")
     plt.close()
     
-    print(f"📂 Training metrics plot saved to: {plot_path}")
+    print(f" Training metrics plot saved to: {plot_path}")
 

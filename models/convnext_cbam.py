@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import timm  # Import timm for ConvNeXt
+import timm 
 
 # CBAM module
 from models.cbam import CBAM
@@ -10,10 +10,13 @@ class ConvNeXt_CBAM(nn.Module):
         super(ConvNeXt_CBAM, self).__init__()
         self.model = timm.create_model("convnext_base", pretrained=True)
 
-        # CBAM modules at different feature extraction stages
-        # self.cbam1 = CBAM(in_channels=128)
-        # self.cbam2 = CBAM(in_channels=256)
-        self.cbam = CBAM(in_channels=1024)
+        self.cbam1 = CBAM(in_channels=128)
+        self.cbam2 = CBAM(in_channels=256)
+        self.cbam3 = CBAM(in_channels=512)
+        self.cbam4 = CBAM(in_channels=1024)
+
+        #BatchNorm for the last CBAM
+        self.norm4 = nn.BatchNorm2d(1024)
 
         self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
         in_features = self.model.num_features
@@ -24,18 +27,26 @@ class ConvNeXt_CBAM(nn.Module):
     def forward(self, x):
         x = self.model.stem(x)  # Initial Conv + LayerNorm
 
-        x = self.model.stages[0](x)  # First feature stage  
+        # Stage 1 + CBAM + Residual
+        x = self.model.stages[0](x)
+        x = x + self.cbam1(x)
 
-        x = self.model.stages[1](x)  # Second feature stage
+        # Stage 2 + CBAM + Residual
+        x = self.model.stages[1](x)
+        x = x+self.cbam2(x)
 
-        x = self.model.stages[2](x)  # Third feature stage
+        # Stage 3 + CBAM + Residual
+        x = self.model.stages[2](x)
+        x = x+ self.cbam3(x)
 
-        x = self.model.stages[3](x)  # Final feature stage (1024 channels)
-        x = self.cbam(x)
+        # Final stage + CBAM + Residual + BatchNorm
+        x = self.model.stages[3](x)
+        x = x+self.cbam4(x)
+        x = self.norm4(x)  # BatchNorm2d
 
-        x = self.global_pool(x)  # Ensure pooling before classifier
-        x = torch.flatten(x, 1)  # Flatten for FC layer
-        x = self.model.head(x)  # Final classification
+        # Pooling and classification
+        x = self.global_pool(x)
+        x = torch.flatten(x, 1)
+        x = self.model.head(x)
 
         return x
-

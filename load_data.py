@@ -1,38 +1,34 @@
-import torch
-import torch.optim as optim
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-import config as ENV
+from config import TRAIN_DATA_PATH, VAL_DATA_PATH, TEST_DATA_PATH, BATCH_SIZE
 
-torch.manual_seed(42)#set fix random for testing
+# torch.manual_seed(42)#set fix random for testing
 
-#Transforms with augmentation
+#augmentation data
 train_transform = transforms.Compose([
-    # transforms.RandomResizedCrop(224, scale=(0.8, 1.0)),
     transforms.Resize((224,224)),
     transforms.RandomHorizontalFlip(p=0.5),
     transforms.RandomVerticalFlip(p=0.5),
     transforms.RandomRotation(15),
     transforms.ColorJitter(brightness=0.15, contrast=0.15),
-    transforms.ToTensor(),#scale image from 0-255 to 0-1.0
+    transforms.ToTensor(),
 ])
-
-test_transform = transforms.Compose([
+#with validation and test set no apply augmentation, only resize and normalized
+val_test_transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
 ])
 
-# Load dataset
-full_train_dataset = datasets.ImageFolder(root=ENV.TRAIN_DATA_PATH, transform=train_transform)
-test_dataset = datasets.ImageFolder(root=ENV.TEST_DATA_PATH, transform=test_transform)
+# Load dataset and apply augmentation
+train_dataset = datasets.ImageFolder(root=TRAIN_DATA_PATH, transform=train_transform)
+val_dataset = datasets.ImageFolder(root=VAL_DATA_PATH, transform=val_test_transform)
+test_dataset = datasets.ImageFolder(root=TEST_DATA_PATH, transform=val_test_transform)
 
+#Only shuffle train dataset
+train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
+val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False)
+test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
-train_size = int(0.8 * len(full_train_dataset))
-val_size = len(full_train_dataset) - train_size
-train_dataset, val_dataset = random_split(full_train_dataset, [train_size, val_size], generator=torch.Generator().manual_seed(42))
-
-train_loader = DataLoader(train_dataset, batch_size=ENV.BATCH_SIZE, shuffle=True)
-val_loader = DataLoader(val_dataset, batch_size=ENV.BATCH_SIZE, shuffle=False)
-test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
-
-num_classes = len(full_train_dataset.classes)
+#define number of class for init model output
+num_classes = len(train_dataset.classes)
+class_names = train_dataset.classes

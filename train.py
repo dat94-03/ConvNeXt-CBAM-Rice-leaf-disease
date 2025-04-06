@@ -3,39 +3,33 @@ import torch.optim as optim
 import torch.nn as nn
 import copy
 import time
-from torch.utils.data import DataLoader
 from load_data import train_loader, val_loader, num_classes
 from models.convnext_cbam import ConvNeXt_CBAM
 from utils import plot_training_metrics
-import config as ENV
+from config import DEVICE, MODEL_NAME, MODEL_PATH, LEARNING_RATE, EPOCHS, PATIENCE
 
+
+print(f"✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG: {MODEL_NAME}]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔")
 torch.cuda.empty_cache()
-print(f"✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔[NEW LOG: {ENV.MODEL_NAME}]✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔✔")
 # Initialize Model
-device = ENV.DEVICE
+device = DEVICE
 model = ConvNeXt_CBAM(num_classes)
 model.to(device)
 
 # Loss and Optimizer
 criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
-optimizer = optim.AdamW(model.parameters(), lr=ENV.LEARNING_RATE, weight_decay=1e-5)
+optimizer = optim.AdamW(model.parameters(), lr=LEARNING_RATE, weight_decay=1e-5)
 scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=50, eta_min=1e-6)
 
-# 🔥 Gradient Clipping Function
-def clip_gradients(model, clip_value=1.0):
-    torch.nn.utils.clip_grad_norm_(model.parameters(), clip_value)
-
-# 🔥 Enable Mixed Precision Training (Latest Syntax)
-scaler = torch.amp.GradScaler(device='cuda') if device.type == "cuda" else None
 
 # Early Stopping Parameters
-patience = 10
+patience = PATIENCE
 best_val_loss = float("inf")
 early_stopping_counter = 0
 best_model_wts = copy.deepcopy(model.state_dict())
 
 # Training Loop
-num_epochs = ENV.EPOCHS
+num_epochs = EPOCHS
 train_losses, val_losses, train_accuracies, val_accuracies = [], [], [], []
 
 start_time = time.time()  # Start timing
@@ -91,13 +85,12 @@ for epoch in range(num_epochs):
     epoch_end = time.time()  # End timing for this epoch
     epoch_duration = epoch_end - epoch_start
 
-    print(f"🕒 Epoch {epoch+1}/{num_epochs} | Time: {epoch_duration:.2f}s | Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.4f}")
-
+    print(f"Epoch {epoch+1}/{num_epochs} | Time: {epoch_duration:.2f}s | Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.4f} | LR: {scheduler.get_last_lr()[0]:.6f} ")
     # Check for best model
     if val_loss < best_val_loss:
         best_val_loss = val_loss
         best_model_wts = copy.deepcopy(model.state_dict())
-        print(f"💾 Saving best val acc: {val_acc:.4f}")
+        print(f"Saving best val acc: {val_acc:.4f}")
         early_stopping_counter = 0  # Reset counter
     else:
         early_stopping_counter += 1
@@ -107,17 +100,17 @@ for epoch in range(num_epochs):
 
     # Early stopping
     if early_stopping_counter >= patience:
-        print("⏹️ Early stopping triggered.")
+        print("Early stopping triggered.")
         break
 
 # Load Best Model and Save It
 model.load_state_dict(best_model_wts)
 total_time = time.time() - start_time  # Total training time
-print(f"✅ Training complete in {total_time:.2f} seconds. Best model loaded.")
+print(f"Training complete in {total_time:.2f} seconds. Best model loaded.")
 
 torch.save({'model_state_dict': model.state_dict(),
-    'optimizer_state_dict': optimizer.state_dict()}, ENV.MODEL_PATH)
-print(f"📁 Model saved to {ENV.MODEL_PATH}")
+    'optimizer_state_dict': optimizer.state_dict()}, MODEL_PATH)
+print(f"Model saved to {MODEL_PATH}")
 
 # Plot training metrics
 plot_training_metrics(train_losses, val_losses, train_accuracies, val_accuracies)

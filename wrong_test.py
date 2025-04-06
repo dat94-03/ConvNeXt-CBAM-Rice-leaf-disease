@@ -1,8 +1,8 @@
 import torch
 import matplotlib.pyplot as plt
 import numpy as np
-from torchvision import transforms, datasets, models
-from config import MODEL_PATH, DEVICE, TEST_DATA_PATH,MODEL_NAME
+from torchvision import transforms, datasets
+from config import MODEL_PATH, DEVICE, TEST_DATA_PATH,MODEL_NAME, BATCH_SIZE
 from models.convnext_cbam import ConvNeXt_CBAM
 from load_data import num_classes
 
@@ -19,7 +19,7 @@ transform = transforms.Compose([
 ])
 
 test_dataset = datasets.ImageFolder(TEST_DATA_PATH, transform=transform)
-test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=16, shuffle=False)
+test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 class_names = test_dataset.classes
 
 # Find misclassified images
@@ -42,15 +42,13 @@ with torch.no_grad():
 
 # Plot misclassified images
 num_images = len(misclassified_images)
+output_filename = f"output/test/{MODEL_NAME}/misclassified_images.png"
 cols = 5
 rows = int(np.ceil(num_images / cols))
 fig, axes = plt.subplots(rows, cols, figsize=(15, 3 * rows))
 axes = axes.flatten()
 
 # Save misclassified images to a file instead of displaying them
-output_filename = f"output/{MODEL_NAME}/misclassified_images.png"
-fig, axes = plt.subplots(rows, cols, figsize=(15, 3 * rows))
-axes = axes.flatten()
 
 for i in range(num_images):
     image = to_pil(misclassified_images[i])

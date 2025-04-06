@@ -1,3 +1,8 @@
+*.log
+output/
+output_old/
+archive/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -46,6 +51,7 @@ requirements.txt
 *.onnx
 **/*.pth
 data/
+
 
 # Cache files
 *.cache/
