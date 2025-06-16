@@ -1,6 +1,6 @@
 /output.log
-output/
 output_old/
+output_less_old/
 /archive/
 
 # Byte-compiled / optimized / DLL files
