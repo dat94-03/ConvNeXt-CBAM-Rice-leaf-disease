@@ -3,11 +3,13 @@ import numpy as np
 import cv2
 import torch
 import torchvision.transforms as transforms
-from config import DEVICE, MODEL_PATH, MODEL_NAME
+from config import DEVICE, MODEL_SAVE_PATH, MODEL_NAME
 import matplotlib.pyplot as plt
 from PIL import Image
 from collections import defaultdict
 import random
+from models.convnext_cbam import ConvNeXt_CBAM
+from load_data import test_dataset, num_classes
 
 class GradCAM:
     def __init__(self, model, target_layer):
@@ -18,8 +20,9 @@ class GradCAM:
         self.hook_layers()
 
     def hook_layers(self):
+        """Register forward and backward hooks on the target layer."""
         def forward_hook(module, input, output):
-            self.activations = output
+            self.activations = output.detach()
 
         def backward_hook(module, grad_input, grad_output):
             self.gradients = grad_output[0]
@@ -28,23 +31,27 @@ class GradCAM:
         self.target_layer.register_full_backward_hook(backward_hook)
 
     def generate_cam(self, input_tensor, class_idx):
+        # Forward pass
+        self.model.eval()
         output = self.model(input_tensor)
         self.model.zero_grad()
 
+        # Backward pass for the specified class
         class_score = output[0, class_idx]
         class_score.backward()
 
+        # Compute CAM
         weights = torch.mean(self.gradients, dim=(2, 3), keepdim=True)
         cam = torch.sum(weights * self.activations, dim=1).squeeze().detach().cpu().numpy()
-        cam = np.maximum(cam, 0)
+        cam = np.maximum(cam, 0) # ReLU
 
         cam = (cam - cam.min()) / (cam.max() - cam.min() + 1e-8)  # Avoid divide-by-zero
         return cam
 
 def preprocess_image(image_path):
     transform = transforms.Compose([
-        transforms.Resize((224, 224)),  # Fixed size for consistency
-        transforms.ToTensor(),
+        transforms.Resize((224, 224)),
+        transforms.ToTensor()
     ])
     image = Image.open(image_path).convert("RGB")
     return transform(image).unsqueeze(0), image
@@ -68,17 +75,18 @@ def create_grid(images, grid_size=(4, 4), image_size=(224, 224), background_colo
     return grid_image
 
 if __name__ == "__main__":
-    from models.convnext_cbam import ConvNeXt_CBAM
-    from load_data import test_dataset, num_classes
-
+    # Load model
     model = ConvNeXt_CBAM(num_classes).to(DEVICE)
-    model.load_state_dict(torch.load(MODEL_PATH, map_location=DEVICE)['model_state_dict'])
+    model.load_state_dict(torch.load(MODEL_SAVE_PATH, map_location=DEVICE)['model_state_dict'])
     model.eval()
-
-    target_layer = model.model.stages[3]  # Final ConvNeXt stage
+    
+    # Initialize GradCAM
+    target_layer = model.model.stages[3]  # Final ConvNeXt stage (1024 channels)
     grad_cam = GradCAM(model, target_layer)
 
-    os.makedirs(f"output/test/{MODEL_NAME}/grad_cam", exist_ok=True)
+    # Create output directory
+    output_dir = f"output/test/{MODEL_NAME}/grad_cam"
+    os.makedirs(output_dir, exist_ok=True)
 
     # Group samples by class
     class_to_indices = defaultdict(list)
@@ -88,8 +96,8 @@ if __name__ == "__main__":
     # Select equal samples from each class (total 64)
     num_classes = len(class_to_indices)
     samples_per_class = 64 // num_classes
-
     fixed_indices = []
+    
     for label, indices in class_to_indices.items():
         selected = indices[:min(samples_per_class, len(indices))] 
         fixed_indices.extend(selected)
@@ -102,7 +110,6 @@ if __name__ == "__main__":
             if extra:
                 fixed_indices.append(random.choice(extra))
 
-    # random.shuffle(fixed_indices) uncomment if you want to shuffle the selected indices
 
     for batch in range(8):  # 8 batches of 8 image pairs = 16 images/grid
         images = []
@@ -124,4 +131,4 @@ if __name__ == "__main__":
         grid = create_grid(images, grid_size=(4, 4))
         grid.save(f"output/test/{MODEL_NAME}/grad_cam/grid_batch_{batch + 1}.jpg")
 
-    print(f"Saved 8 merged gradCAM images in the output/test/{MODEL_NAME}/grad_cam folder!")
+    print(f"Saved gradCAM images")

@@ -1,96 +1,77 @@
-Here's a clean and professional `README.md` tailored for your rice leaf disease classification project:
+#🌿 Plant Leaf Disease Classification
 
----
+This project focuses on classifying potato leaf diseases using a deep learning model based on **ConvNeXt_CBAM**, which integrates Convolutional Block Attention Modules (CBAM) into a pre-trained ConvNeXt base architecture. It supports standard training and evaluation, with options for visualizing model performance through confusion matrices, training metrics, and misclassified images. 
 
-# 🌾 Rice Leaf Disease Classification
-
-This project aims to classify rice leaf diseases using deep learning models. It supports standard training and K-Fold cross-validation training. After training, results including logs and prediction images will be saved for evaluation and visualization.
-
----
-
-## 📁 Project Structure
-
-```
-project-root/
-├── data/                 # Place your dataset here
-├── config.py             # Update config path as needed
-├── run.sh                # Script to run standard training
-├── run_kfold.sh          # Script to run K-Fold training
-├── test.sh               # Script to evaluate trained model
-├── test_kfold.py         # Script to evaluate K-Fold trained model
-├── output/               # Output images and logs are saved here
-└── output.log            # Training and test logs
-```
-
----
 
 ## 🚀 Getting Started
 
-### 1. Place Dataset
+### 1. Install Dependencies
 
-Put your dataset inside the `data/` folder located at the project root.
+Ensure all required packages are installed. You can set up a Python environment and install dependencies using:
 
-### 2. Update Config
-
-Open `config.py` and update the data path or any other configuration parameters to suit your setup.
-
-```python
-# Example
-DATA_PATH=f"./data/{DATA_SET}"
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-### 3. Train the Model
+### 2. Prepare the Dataset
 
-**Standard Training**
+Place your dataset in the `data/` folder. The expected structure is:
+
+```
+data/Potato_splited/
+├── train/
+│   ├── early_blight/
+│   ├── late_blight/
+│   └── healthy/
+├── validation/
+│   ├── early_blight/
+│   ├── late_blight/
+│   └── healthy/
+└── test/
+    ├── early_blight/
+    ├── late_blight/
+    └── healthy/
+```
+
+### 3. Update Configuration
+
+Edit `config.py` to set the correct paths and hyperparameters. Example:
+
+```python
+# config.py
+DATA_PATH = "./data/Potato_splited/"
+TEST_DATA_PATH = "./data/Potato_splited/test/"
+MODEL_PATH = "./output/model.pth"
+MODEL_NAME = "convnext_cbam"
+DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+BATCH_SIZE = 16
+```
+
+### 4. Train the Model
+
+Run the training script to train the ConvNeXt_CBAM model:
 
 ```bash
 bash run.sh
 ```
 
-**K-Fold Training** (use this if your dataset only has `train/` and `test/` folders)
-
-```bash
-bash run_kfold.sh
-```
-
-All logs will be saved to `output.log`.
+This script trains the model using the dataset in `data/Potato_splited/`, saves the trained weights to `output/model.pth`, and logs training progress to `output.log`.
 
 ---
 
 ## 🧪 Testing the Model
 
-After training is complete:
-
-- **Standard model**:
+Evaluate the trained model on the test dataset:
 
 ```bash
 bash test.sh
 ```
 
-- **K-Fold model**:
+This script:
+- Loads the trained model from `MODEL_PATH`.
+- Evaluates performance using metrics like accuracy, precision, recall, and F1-score.
+- Generates visualizations (e.g., confusion matrix, training metrics plots, grad_am) saved in `output/test/{MODEL_NAME}/`.
+- Appends evaluation logs to `output.log`.
 
-```bash
-python test_kfold.py
-```
-
-Logs will be appended to `output.log`. Prediction images will be saved in the `output/` folder.
-
----
-
-## 📦 Output
-
-After testing:
-
-- Logs: `output.log`
-- Prediction Results: `output/` folder (with visualization images)
-
----
-
-## 📌 Notes
-
-- Make sure all dependencies are installed (e.g., PyTorch, torchvision, matplotlib, etc.).
-- The model and configuration are customizable for different datasets or experiment settings.
-
----
-
-Let me know if you'd like to include installation steps, sample images, or model architecture details too!

@@ -1,52 +1,66 @@
 import torch
-import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
-import config as ENV
+from config import DEVICE, MODEL_NAME
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 
-def evaluate_model(model, test_loader, class_names, output_dir=f"output/test/{ENV.MODEL_NAME}"):
+def evaluate_model(model, test_loader, class_names, output_dir=f"output/test/{MODEL_NAME}"):
+    # Ensure output directory exists
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Set model to evaluation mode
     model.eval()
-    all_preds, all_labels = [], []
+    
+    # Lists to store predictions and true labels
+    all_preds = []
+    all_labels = []
 
+    # Evaluate model without computing gradients
     with torch.no_grad():
         for images, labels in test_loader:
-            images, labels = images.to(ENV.DEVICE), labels.to(ENV.DEVICE)
+            images, labels = images.to(DEVICE), labels.to(DEVICE)
+            
+            # Forward pass
             outputs = model(images)
-            _, predicted = torch.max(outputs, 1)
+            
+            # Get predicted class indices
+            predicted = torch.argmax(outputs, dim=1)
+            
+            # Collect predictions and true labels
             all_preds.extend(predicted.cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
 
-    # Compute and Display Accuracy
+    # Compute and display accuracy
     accuracy = accuracy_score(all_labels, all_preds)
     print(f"\n Test Accuracy: {accuracy * 100:.2f}%")
 
     # Classification Report
     print("\n Classification Report:")
-    print(classification_report(all_labels, all_preds, target_names=class_names,digits=4))
+    report = classification_report(all_labels, all_preds, target_names=class_names, digits=4)
+    print(report)
 
+    # Save classification report to a text file
+    with open(os.path.join(output_dir, "classification_report.txt"), "w") as f:
+        f.write(report)
+    
     # Confusion Matrix
     cm = confusion_matrix(all_labels, all_preds)
-
-    # Ensure output directory exists
-    os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, "confusion_matrix.png")
 
     plt.figure(figsize=(8, 6))
     sns.heatmap(cm, annot=True, fmt="d", cmap="YlGnBu", xticklabels=class_names, yticklabels=class_names)
     plt.xlabel("Predicted Label")
     plt.ylabel("True Label")
     plt.title("Confusion Matrix")
-
+    
     # Save the plot
+    output_path = os.path.join(output_dir, "confusion_matrix.png")
     plt.savefig(output_path, bbox_inches="tight")
     plt.close()
+    print(f" Confusion matrix saved")
 
-    print(f" Confusion matrix saved to: {output_path}")
 
-
-def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accuracies, output_dir=f"output/test/{ENV.MODEL_NAME}"):
+def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accuracies, output_dir=f"output/test/{MODEL_NAME}"):
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
     
@@ -76,5 +90,5 @@ def plot_training_metrics(train_losses, val_losses, train_accuracies, val_accura
     plt.savefig(plot_path, bbox_inches="tight")
     plt.close()
     
-    print(f" Training metrics plot saved to: {plot_path}")
+    print(f" Training metrics plot saved")
 

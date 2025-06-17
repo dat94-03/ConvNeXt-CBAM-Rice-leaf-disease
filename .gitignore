@@ -1,6 +1,6 @@
-/output.log
-output_old/
-output_less_old/
+# /output.log
+output1/
+output2/
 /archive/
 
 # Byte-compiled / optimized / DLL files
@@ -42,7 +42,7 @@ Thumbs.db
 *.ini
 *.cfg
 *.toml
-requirements.txt
+# requirements.txt
 
 # Ignore model and dataset files
 *.h5
@@ -50,7 +50,8 @@ requirements.txt
 *.ckpt
 *.onnx
 **/*.pth
-data/
+data/*
+!data/*.py
 
 
 # Cache files

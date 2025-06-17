@@ -1,4 +1,4 @@
-#kill all the previous train.py process before run the new one
+#kill all the previous train.py
 pkill -f train.py
 
 # Activate virtual environment

@@ -8,8 +8,11 @@ from models.cbam import CBAM
 class ConvNeXt_CBAM(nn.Module):
     def __init__(self, num_classes):
         super(ConvNeXt_CBAM, self).__init__()
+        
+        # Load pre-trained ConvNeXt base model
         self.model = timm.create_model("convnext_base", pretrained=True)
 
+        # Define CBAM modules for each stage, matching the output channels of ConvNeXt base
         self.cbam1 = CBAM(in_channels=128)
         self.cbam2 = CBAM(in_channels=256)
         self.cbam3 = CBAM(in_channels=512)
@@ -18,14 +21,16 @@ class ConvNeXt_CBAM(nn.Module):
         #BatchNorm for the last CBAM
         self.norm4 = nn.BatchNorm2d(1024)
 
+        # Define global average pooling to reduce spatial dimensions to 1x1
         self.global_pool = nn.AdaptiveAvgPool2d((1, 1))
-        in_features = self.model.num_features
 
         # Replace classification head
+        in_features = self.model.num_features # 1024 for ConvNeXt base
         self.model.head = nn.Linear(in_features, num_classes)
 
     def forward(self, x):
-        x = self.model.stem(x)  # Initial Conv + LayerNorm
+        #Stem stage: Initial Conv + LayerNorm
+        x = self.model.stem(x)  
 
         # Stage 1 + CBAM + Residual
         x = self.model.stages[0](x)
@@ -39,14 +44,18 @@ class ConvNeXt_CBAM(nn.Module):
         x = self.model.stages[2](x)
         x = x+ self.cbam3(x)
 
-        # Final stage + CBAM + Residual + BatchNorm
+        # Stage 4 + CBAM + Residual + BatchNorm
         x = self.model.stages[3](x)
         x = x+self.cbam4(x)
         x = self.norm4(x)  # BatchNorm2d
 
-        # Pooling and classification
+        # Apply global average pooling to reduce spatial dimensions
         x = self.global_pool(x)
+        
+        # Flatten the output for the classification head
         x = torch.flatten(x, 1)
+        
+        # Apply the classification head to produce logits
         x = self.model.head(x)
 
         return x
